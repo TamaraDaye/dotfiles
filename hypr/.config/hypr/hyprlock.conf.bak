@@ -1,0 +1,20 @@
+input-field {
+    monitor = eDP-1
+    size = 20%, 5%
+    outline_thickness = 3
+    inner_color = rgba(0, 0, 0, 0.0)
+
+    # Corrected solid colors for a clean look
+    outer_color = rgba(51, 204, 255, 1.0)
+    check_color = rgba(0, 255, 153, 1.0)
+    fail_color = rgba(255, 102, 51, 1.0)
+
+    font_color = rgb(143, 143, 143)
+    font_family = MesloLGS Nerd Font Mono 
+    fade_on_empty = false
+    rounding = 15
+
+    position = 0, -20
+    halign = center
+    valign = center
+}

@@ -1,0 +1,16 @@
+# Profile 1: Docked (Matches when DP-3 AND eDP-1 are connected)
+profile {
+	output "eDP-2" disable
+    output "ASUSTek COMPUTER INC VG259QM M3LMQS145776" enable mode 1920x1080@279.85699 position 0,0
+
+    # Force 8-bit safety on the monitor
+    exec hyprctl keyword monitor "DP-3,1920x1080@280,0x0,1,bitdepth,8"
+}
+
+# Profile 2: Mobile (Matches when ONLY eDP-1 is connected)
+profile {
+    output eDP-2 enable mode 2560x1600@60 scale 1.6
+
+    # Force the laptop screen on and reset the scale
+    exec hyprctl keyword monitor "eDP-1,2560x1600@60,auto,1.6"
+}
