@@ -32,7 +32,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Less: good defaults for logs
 export LESS='-R -F -X -M'
 export LESSCHARSET='utf-8'
+# A generic fast CDN mirror
+export UV_INDEX_URL="https://pypi.org/simple"
 
+# OR: If you are in a specific region, find a local mirror.
+# Example (University mirrors are often blazing fast):
+# export UV_INDEX_URL="https://mirror.accum.se/mirror/pypi.org/simple"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -121,6 +126,8 @@ alias docs="cd ~/Documents"
 alias desk="cd ~/Desktop"
 alias cpy="wl-cpy"
 alias dps='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
+alias sv="source .venv/bin/activate"
+alias nv="nvim"
 
 
 

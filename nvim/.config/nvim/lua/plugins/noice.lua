@@ -7,25 +7,22 @@ return {
 	},
 	config = function()
 		require("noice").setup({
-			-- DISABLE Noice's message handling
-			-- This puts messages back to the bottom command line area
 			messages = {
-				enabled = true,
+				enabled = false,
 			},
 			cmdline = {
 				enabled = true,
 			},
-
-			-- DISABLE Noice's LSP UI (Hover & Signature)
-			-- This keeps your "K" documentation and typing hints standard
+			-- ADD THIS SECTION:
+			popupmenu = {
+				enabled = false, -- Let nvim-cmp/native UI handle the completion menu
+			},
 			lsp = {
-				hover = {
+				progress = {
 					enabled = false,
 				},
-				signature = {
-					enabled = false,
-				},
-				-- Keep these overrides for the command line completion docs
+				hover = { enabled = false },
+				signature = { enabled = false },
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 					["vim.lsp.util.stylize_markdown"] = true,

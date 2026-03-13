@@ -1,3 +1,5 @@
+-- Set subtle grey borders for all floating windows
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#585b70" })
 return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
@@ -68,13 +70,13 @@ return {
 			window = {
 				completion = {
 					border = "rounded",
-					winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+					winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
 					col_offset = -3,
 					side_padding = 0,
 				},
 				documentation = {
 					border = "rounded",
-					winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+					winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
 				},
 			},
 			-- 2. FIXED: Changed 'noinsert' to 'noselect' to prevent auto-completion

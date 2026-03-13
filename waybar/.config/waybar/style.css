@@ -1,111 +1,80 @@
-/* Vesper Palette */
-@define-color bg #101010;
-@define-color fg #F0F0F0;
-@define-color gold #FFC799;
-@define-color grey #252525;
-@define-color red #FF5D62;
-@define-color green #99FFE4;
-@define-color blue #9CACFF;
-
 * {
     border: none;
+	border-color: #ffc799;
     border-radius: 0;
-    font-family: "DepartureMono Nerd Font";
-    font-size: 14px;
-    font-weight: bold;
+    font-family: "JetBrainsMono Nerd Font", monospace; 
+    font-size: 15px;
     min-height: 0;
 }
 
 window#waybar {
-    background: transparent;
-    color: @fg;
+    background-color: transparent;
+    color: #ffc799;
 }
 
-tooltip {
-    background: @bg;
-    border: 1px solid @gold;
-    border-radius: 10px;
+window#waybar.hidden {
+    opacity: 0.2;
 }
 
-/* --- LEFT: WORKSPACES & TASKBAR --- */
+/* 2. Unified Spacing (The DRY Way) */
+/* Group all your modules here so they have exact, identical spacing */
+#workspaces,
+#battery,
+#cpu,
+#network,
+#clock,
+#mpris,
+#temperature,
+#custom-arch-logo {
+    margin-top: 6px;
+    margin-bottom: 0px;
+    margin-left: 5px;  /* Uniform gap between pills */
+    margin-right: 5px;
+    padding-left: 12px; /* Uniform breathing room inside pills */
+    padding-right: 12px;
+}
+
+/* 3. The Workspaces Glow */
 #workspaces {
-    background: @bg;
-    margin-left: 10px;
-    padding: 0px 10px;
-    border-radius: 20px;
-    border: 1px solid @grey;
+    background-color: #101010;
 }
-#workspaces button.active {
-    color: @gold;
-    font-size: 18px;
-}
-#workspaces button:hover {
-    color: @fg;
+
+#workspaces button {
+    color: #ffc799;
     background: transparent;
+    /* GTK3 only allows ONE shadow layer, so make it count */
+	text-shadow: 0px 0px 8px rgba(255, 199, 153, 0.4);
+    padding: 0 4px; /* Space between workspace numbers */
 }
 
-/* OPEN APPS (Taskbar) */
-#taskbar {
-    background: @bg;
-    margin-left: 10px;
-    padding: 0px 5px;
-    border-radius: 20px;
-    border: 1px solid @grey;
+/* Optional: Make the active workspace glow brighter */
+#workspaces button.active {
+	text-shadow: 0px 0px 8px rgba(255, 199, 153, 0.4);
+    font-weight: bold;
 }
 
-#taskbar button {
-    padding: 0px 10px;
-    margin: 0px 2px;
-    border-radius: 15px;
-    color: @fg;
-    transition: all 0.3s ease;
+/* 4. Module Colors */
+#clock{
+    background-color: #101010;
+    color: #a0a0a0;
 }
 
-#taskbar button.active {
-    background: @grey; /* Highlights the focused window */
-    border-bottom: 2px solid @gold; /* Subtle gold underline */
+#battery, 
+#network {
+    background-color: #5ECCAE;
+    color: #101010; /* Dark text for high contrast */
 }
 
-#taskbar button:hover {
-    background: @grey;
-    color: @gold;
+#cpu {
+    background-color: #ff9e64;
+	color: black;
 }
 
-/* --- CENTER: MEDIA --- */
+#custom-arch-logo {
+	color: #ffc799;
+}
+
 #mpris {
-    background: @bg;
-    color: @gold;
-    padding: 5px 20px;
-    border-radius: 20px;
-    border: 1px solid @grey;
-    min-width: 150px;
+	background-color: black;
+	color: #ffc799;
 }
-#mpris.paused {
-    color: @fg;
-    font-style: italic;
-}
-
-/* --- RIGHT: CLOCK & HARDWARE --- */
-#clock {
-    background: @bg;
-    color: @gold;
-    margin-right: 10px;
-    padding: 5px 15px;
-    border-radius: 20px;
-    border: 1px solid @grey;
-}
-
-#pulseaudio, #network, #battery, #tray {
-    background: @bg;
-    color: @fg;
-    padding: 5px 15px;
-    margin-left: 10px;
-    border-radius: 20px;
-    border: 1px solid @grey;
-}
-
-#pulseaudio { color: @green; }
-#network { color: @blue; }
-#battery.charging { color: @green; }
-#battery.warning { color: @gold; }
-#battery.critical { color: @red; }
