@@ -1,0 +1,67 @@
+{
+  // Launcher
+  "custom/arch-logo": {
+    "format": "󰣇",
+    "tooltip": false,
+  },
+
+  // Workspaces (Hyprland)
+  "hyprland/workspaces": {
+    "active-only": true,
+    "format": "{name} | {windows}",
+    "format-window-seperator": " ",
+    "window-rewrite-default": "󰣆 ",
+    "window-rewrite": {
+      "class<firefox>": " ",
+      "class<kitty|ghostty|alacritty|wezterm>": " ",
+      "class<spotify>": "  ",
+      "class<Discord>": "  ",
+      "class<onlyoffice>": " ",
+    },
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity: >3}%",
+    "format-icons": [" ", " ", " ", " ", " "],
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": "{usage}%  ",
+    "max-length": 10,
+  },
+
+  "clock#time": {
+    "format": "  {:%R}",
+    "tooltip": false,
+  },
+
+  "clock#date": {
+    "format": "  {:%Y-%m-%d}",
+    "tooltip": false,
+  },
+
+  "network": {
+    "tooltip": false,
+    "format-wifi": "  {essid}",
+    "format-ethernet": "",
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+      "default": " ",
+      "spotify": " ",
+      "brave": "🦁",
+      "firefox": " ",
+    },
+    "status-icons": {
+      "paused": "",
+    },
+    "max-length": 45,
+  },
+}
