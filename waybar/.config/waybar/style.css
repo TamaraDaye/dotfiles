@@ -73,8 +73,9 @@ window#waybar.hidden {
 #custom-arch-logo {
 	color: #ffc799;
 }
-
+#temperature,
 #mpris {
 	background-color: black;
 	color: #ffc799;
 }
+

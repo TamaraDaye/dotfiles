@@ -25,6 +25,7 @@ export PATH="$HOME/go/bin:$PATH"
 # Use fd instead of find (respects .gitignore, ignores .git)
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
 export EDITOR=nvim
+export SUDO_EDITOR=nvim
 # Apply to Ctrl+T
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -99,6 +100,8 @@ source /usr/share/fzf/completion.zsh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+#
+#
 
 
 

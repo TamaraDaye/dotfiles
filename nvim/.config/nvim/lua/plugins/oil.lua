@@ -1,90 +1,30 @@
-return {
-	"stevearc/oil.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+require("oil").setup({
+    default_file_explorer = true, -- start up nvim with oil instead of netrw
+    columns = { },
+    keymaps = {
+        ["<C-h>"] = false,
+        ["<C-l>"] = false,
+        ["<C-c>"] = false, -- prevent from closing Oil as <C-c> is esc key
+        ["<C-r>"] = "actions.refresh",
+        ["h"] = "actions.select_split",
+        ["q"] = "actions.close",
+        ["v"] = "actions.select_vsplit", 
+    },
+    delete_to_trash = true,
+    view_options = {
+        show_hidden = true,
+    },
+    skip_confirm_for_simple_edits = true,
+})
 
-	-- Force load at startup so it handles "nvim ."
-	lazy = false,
+-- opens parent dir over current active window
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+-- open parent dir in float window
+vim.keymap.set("n", "<leader>-", require("oil").toggle_float)
 
-	-- Keybindings
-	keys = {
-		{ "-", "<CMD>Oil<CR>", desc = "Open parent directory" },
-		{ "<leader>-", "<CMD>Oil --float<CR>", desc = "Open parent directory (Float)" },
-	},
-
-	config = function()
-		require("oil").setup({
-			-- 1. Customize columns
-			columns = {
-				"icon",
-				-- "permissions",
-				-- "size",
-			},
-
-			-- 2. Buffer window settings
-			win_options = {
-				signcolumn = "yes",
-				number = false,
-				relativenumber = false,
-				cursorline = true,
-				foldcolumn = "0",
-				spell = false,
-				list = false,
-				wrap = false,
-			},
-
-			-- 3. Float window settings
-			float = {
-				padding = 2,
-				max_width = 100,
-				max_height = 0,
-				border = "rounded",
-				win_options = {
-					winblend = 0,
-				},
-			},
-
-			-- 4. Keymaps inside Oil
-			keymaps = {
-				["g?"] = "actions.show_help",
-				["<CR>"] = "actions.select",
-				["<C-s>"] = "actions.select_vsplit",
-				["<C-h>"] = "actions.select_split",
-				["<C-t>"] = "actions.select_tab",
-				["<C-p>"] = "actions.preview",
-				["<C-c>"] = "actions.close",
-				["<C-l>"] = "actions.refresh",
-				["-"] = "actions.parent",
-				["_"] = "actions.open_cwd",
-				["`"] = "actions.cd",
-				["~"] = "actions.tcd",
-				["gs"] = "actions.change_sort",
-				["gx"] = "actions.open_external",
-				["g."] = "actions.toggle_hidden",
-			},
-
-			-- 5. View options
-			view_options = {
-				show_hidden = true,
-				natural_order = true,
-				is_always_hidden = function(name, bufnr)
-					return name == ".." or name == ".git"
-				end,
-			},
-		})
-
-		-- ==========================================================
-		--  VESPER GIT HIGHLIGHTS
-		-- ==========================================================
-		-- This manually forces the colors to match your Lualine theme
-
-		-- Modified Files -> Vesper Gold
-		vim.api.nvim_set_hl(0, "OilGitStatusModified", { fg = "#FFC799", bold = true })
-
-		-- New/Untracked Files -> Vesper Green
-		vim.api.nvim_set_hl(0, "OilGitStatusUntracked", { fg = "#99FFE4" })
-		vim.api.nvim_set_hl(0, "OilGitStatusNew", { fg = "#99FFE4" })
-
-		-- Ignored Files -> Dark Grey
-		vim.api.nvim_set_hl(0, "OilGitStatusIgnored", { fg = "#505050" })
-	end,
-}
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "oil", -- Adjust if Oil uses a specific file type identifier
+    callback = function()
+        vim.opt_local.cursorline = true
+    end,
+})

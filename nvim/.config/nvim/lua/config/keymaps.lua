@@ -1,15 +1,20 @@
 local opts = { noremap = true, silent = true }
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
+-- restart
+vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", {
+    desc = "Restart Neovim (:restart)",
+    silent = true
+})
+
+
+
 vim.keymap.set("i", "jj", "<Esc>") -- doubletap j to go back to normal mode
-vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "save a file" })
-vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = " quit the editor" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move lines down in visual selection" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move lines up in visual selection" })
 
-vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "move down in buffer with cursor centered" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move down in buffer with cursor centered" })
@@ -70,12 +75,5 @@ vim.keymap.set("n", "<leader>fp", function()
 	print("File path copied to clipboard: " .. filePath) -- Optional: print message to confirm
 end, { desc = "Copy file path to clipboard" })
 
--- Toggle LSP diagnostics visibility
-local isLspDiagnosticsVisible = true
-vim.keymap.set("n", "<leader>lx", function()
-	isLspDiagnosticsVisible = not isLspDiagnosticsVisible
-	vim.diagnostic.config({
-		virtual_text = isLspDiagnosticsVisible,
-		underline = isLspDiagnosticsVisible,
-	})
-end, { desc = "Toggle LSP diagnostics" })
+
+

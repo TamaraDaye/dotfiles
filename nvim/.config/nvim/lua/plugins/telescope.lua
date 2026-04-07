@@ -1,76 +1,66 @@
-return {
-	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		"nvim-tree/nvim-web-devicons",
-		"andrew-george/telescope-themes",
-	},
+local telescope = require("telescope")
+local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
+telescope.load_extension("themes")
 
-	config = function()
-		local telescope = require("telescope")
-		local actions = require("telescope.actions")
-		local builtin = require("telescope.builtin")
+telescope.setup({
+    defaults = {
+        path_display = { "smart" },
+        -- This makes Telescope look much cleaner
+        layout_strategy = "horizontal",
+        layout_config = {
+            horizontal = {
+                preview_width = 0.55,
+                results_width = 0.8,
+            },
+            vertical = {
+                mirror = false,
+            },
+            width = 0.87,
+            height = 0.80,
+            preview_cutoff = 120,
+        },
+        mappings = {
+            i = {
+                ["<C-k>"] = actions.move_selection_previous, -- Home row navigation
+                ["<C-j>"] = actions.move_selection_next,     -- Home row navigation
+                ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            },
+        },
+    },
+    -- Keep your themes extension as you had it
+    extensions = {
+        themes = {
+            enable_previewer = true,
+            enable_live_preview = true,
+            persist = {
+                enabled = true,
+                path = vim.fn.stdpath("config") .. "/lua/colorscheme.lua",
+            },
+        },
+    },
+})
 
-		telescope.load_extension("fzf")
-		telescope.load_extension("themes")
 
-		telescope.setup({
-			defaults = {
-				path_display = { "smart" },
-				mappings = {
-					i = {
-						["<C-k>"] = actions.move_selection_previous,
-						["<C-j>"] = actions.move_selection_next,
-					},
-				},
-			},
-			extensions = {
-				themes = {
-					enable_previewer = true,
-					enable_live_preview = true,
-					persist = {
-						enabled = true,
-						path = vim.fn.stdpath("config") .. "/lua/colorscheme.lua",
-					},
-				},
-			},
-		})
+-- Navigation
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files (Root)" })
+vim.keymap.set("n", "<leader>pg", builtin.live_grep, { desc = "Grep Project (Live)" })
+vim.keymap.set("n", "<leader>,", builtin.buffers, { desc = "Switch Open Buffers" })
 
-		-- Keymaps
-		vim.keymap.set("n", "<leader>pr", "<cmd>Telescope oldfiles<CR>", { desc = "Fuzzy find recent files" })
+-- Advanced Search
+vim.keymap.set("n", "<leader>ps", builtin.git_files, { desc = "Find Git Files" })
+vim.keymap.set("n", "<leader>ph", builtin.help_tags, { desc = "Search Help Docs" })
 
-		vim.keymap.set("n", "<leader>pWs", function()
-			local word = vim.fn.expand("<cWORD>")
-			builtin.grep_string({
-				search = word,
-				cwd = vim.fn.getcwd(),
-			})
-		end, { desc = "Find connected words under cursor (CWD)" })
+-- Your existing recent files, but cleaned up
+vim.keymap.set("n", "<leader>pr", builtin.oldfiles, { desc = "Recent Files" })
 
-		vim.keymap.set("n", "<leader>ff", function()
-			builtin.find_files({ cwd = vim.fn.getcwd() })
-		end, { desc = "Find files (CWD)" })
+-- Primeagen's "Search word under cursor" (Corrected)
+vim.keymap.set("n", "<leader>pws", function()
+    local word = vim.fn.expand("<cword>")
+    builtin.grep_string({ search = word })
+end, { desc = "Search word under cursor" })
 
-		-- NEW: Live grep in current working directory
-		vim.keymap.set("n", "<leader>fg", function()
-			builtin.live_grep({ cwd = vim.fn.getcwd() })
-		end, { desc = "Live grep (CWD)" })
-
-		vim.keymap.set("n", "<leader>lp", builtin.lsp_definitions, { desc = "Show LSP definitions" })
-
-		vim.keymap.set("n", "<C-s>", function()
-			local word = vim.fn.expand("<cword>")
-			local new = vim.fn.input("Replace '" .. word .. "' with: ")
-			vim.cmd("%s/\\<" .. word .. "\\>/" .. new .. "/g")
-		end, { noremap = true, silent = true, desc = "Replace word under cursor" })
-
-		vim.keymap.set(
-			"n",
-			"<leader>ths",
-			"<cmd>Telescope themes<CR>",
-			{ noremap = true, silent = true, desc = "Theme switcher" }
-		)
-	end,
-}
+vim.keymap.set("n", "<leader>pWs", function()
+    local word = vim.fn.expand("<cWORD>")
+    builtin.grep_string({ search = word })
+end, { desc = "Search WHOLE word under cursor" })
