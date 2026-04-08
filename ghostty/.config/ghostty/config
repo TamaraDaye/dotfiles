@@ -1,6 +1,6 @@
 # Font
 font-size = 13
-font-family = "JetBrainsMono Nerd Font"
+font-family = "JetBrainsMonoNl Nerd Font"
 font-feature = ["liga=0"]
 
 # Cursor
@@ -11,17 +11,20 @@ cursor-color = #FFE5B4
 cursor-opacity = 0.85
 
 # Window
-window-decoration = false
+confirm-close-surface = false
+window-decoration = auto
 window-padding-x = 10
-window-padding-y = 8
+window-padding-y = 10
+window-padding-balance = true
 
 # Theme
 theme = monoglow_z.conf
 
 background = #101010
-background-opacity = 0.90
-background-blur-radius = 18
+background-opacity = 0.8
+background-blur-radius = 25
 foreground = #cdd6f4
+background-blur = true
 
 # Selection (cohesive with cursor accent)
 selection-background = #FFE5B4

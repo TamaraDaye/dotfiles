@@ -39,7 +39,7 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = true
 
 -- UI
-vim.opt.termguicolors = true
+vim.o.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"

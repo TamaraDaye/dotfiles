@@ -50,7 +50,6 @@ vim.pack.add({
     { src = "https://github.com/numToStr/Comment.nvim" }, --enabled
     { src = "https://github.com/folke/noice.nvim", },--enabled
     { src = "https://github.com/andweeb/presence.nvim", },--enabled
-    {src = "https://github.com/folke/which-key.nvim"},
 
     --editing Helpers
     { src = "https://github.com/folke/todo-comments.nvim" }, --enabled
@@ -67,6 +66,8 @@ vim.pack.add({
     { src = "https://github.com/catppuccin/nvim", name = "catppuccin-nvim" },
     { src = "https://github.com/datsfilipe/vesper.nvim.git" },
     { src = "https://github.com/rebelot/kanagawa.nvim.git"},
+    {src = "https://github.com/tiagovla/tokyodark.nvim.git"}
+
 })
 
 -- local function pack_clean()
@@ -106,4 +107,4 @@ require("plugins.fidget")
 require("plugins.snacks")
 require("plugins.incline")
 require("nvim-web-devicons")
-require("plugins.whichkey")
+require("plugins.colorscheme")

@@ -2,7 +2,7 @@ local snacks = require("snacks")
 
 snacks.setup({
     input = {enabled = true},
-    quickfile = {enabled = true}, 
+    quickfile = {enabled = true},
     explorer = {
         enabled = true,
         replace_netrw = false,
@@ -36,3 +36,4 @@ snacks.setup({
         },
     },
 })
+vim.keymap.set("n", "<leader>lg", function() require("snacks").lazygit() end)

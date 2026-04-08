@@ -1,7 +1,6 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
-telescope.load_extension("themes")
 
 telescope.setup({
     defaults = {
