@@ -36,6 +36,7 @@ export LESS='-R -F -X -M'
 export LESSCHARSET='utf-8'
 # A generic fast CDN mirror
 export UV_INDEX_URL="https://pypi.org/simple"
+export GSK_RENDERER=gl
 
 # OR: If you are in a specific region, find a local mirror.
 # Example (University mirrors are often blazing fast):

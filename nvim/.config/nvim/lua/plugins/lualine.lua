@@ -1,4 +1,3 @@
--- lua/sethy/plugins/lualine.lua
 local lualine = require("lualine")
 
 local colors = {

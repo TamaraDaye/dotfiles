@@ -1,14 +1,15 @@
 # Font
 font-size = 13
 font-family = "JetBrainsMonoNl Nerd Font"
-font-feature = ["liga=0"]
+term = ghostty
+
 
 # Cursor
 cursor-style = block
-cursor-style-blink = true
+cursor-style-blink = false
 cursor-invert-fg-bg = false
 cursor-color = #FFE5B4
-cursor-opacity = 0.85
+cursor-opacity = 1
 
 # Window
 confirm-close-surface = false
@@ -20,18 +21,17 @@ window-padding-balance = true
 # Theme
 theme = monoglow_z.conf
 
+
 background = #101010
-background-opacity = 0.8
-background-blur-radius = 25
+background-opacity = 0.75
+background-blur-radius = 0
 foreground = #cdd6f4
-background-blur = true
+background-blur = false
 
 # Selection (cohesive with cursor accent)
 selection-background = #FFE5B4
 selection-foreground = #101010
 
-# Shell integration
-shell-integration-features = no-cursor
 
 # Keybinds
 keybind = super+r=reload_config

@@ -41,7 +41,7 @@ noice.setup({
                 row = -2,
                 col = "100%",
             },
-        }
+        },
     },
     lsp = {
         -- Disabled this to stop the violent flickering on startup
@@ -64,17 +64,18 @@ noice.setup({
     routes = {
         {
             filter = {
-                event = 'msg_show',
+                event = "msg_show",
                 any = {
-                    { find = '%d+L, %d+B' },
-                    { find = '; after #%d+' },
-                    { find = '; before #%d+' },
-                    { find = '%d fewer lines' },
-                    { find = '%d more lines' },
+                    { find = "%d+L, %d+B" },
+                    { find = "; after #%d+" },
+                    { find = "; before #%d+" },
+                    { find = "%d fewer lines" },
+                    { find = "%d more lines" },
+                    { find = "written" },
                 },
             },
             opts = { skip = true },
-        }
+        },
     },
     messages = {
         enabled = false,

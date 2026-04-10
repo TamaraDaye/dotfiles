@@ -35,5 +35,6 @@ snacks.setup({
             { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
         },
     },
+
 })
 vim.keymap.set("n", "<leader>lg", function() require("snacks").lazygit() end)
