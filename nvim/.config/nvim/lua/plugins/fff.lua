@@ -100,7 +100,7 @@ vim.keymap.set("n", "<leader>fg", function()
 end, { desc = "Live fffuzy grep word" })
 
 vim.keymap.set("n", "<leader>pgf", function()
-    require("fff").find_in_git_root()
+    require("fff").find_files()
 end, { desc = "Find files in git root" })
 
 vim.keymap.set("n", "cf", function()

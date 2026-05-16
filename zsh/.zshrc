@@ -133,6 +133,7 @@ alias cpy="wl-cpy"
 alias dps='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
 alias sv="source .venv/bin/activate"
 alias nv="nvim"
+alias py="python"
 
 
 

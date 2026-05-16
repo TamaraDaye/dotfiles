@@ -1,0 +1,49 @@
+# --- BACKGROUND (from your hyprlock background block) ---
+image=/home/jae/wallpaper/nagzul.jpg
+scaling=fill
+
+# --- CLOCK (maps your $TIME label) ---
+clock
+timestr=%H:%M
+datestr=%A, %B %d
+
+# swaylock cannot control exact position offsets like hyprlock
+# everything is centered by default
+
+# --- INDICATOR (replaces input-field block) ---
+indicator
+indicator-radius=110
+indicator-thickness=6
+
+# --- COLORS (mapped from your palette) ---
+# inside field (transparent glass feel)
+inside-color=00000011
+
+# ring (your orange/teal vibe simplified)
+ring-color=ffc799aa
+key-hl-color=99ffe4cc
+
+# wrong / fail colors
+inside-wrong-color=ff6e6e88
+ring-wrong-color=ffaa6e
+
+# verifying colors
+inside-ver-color=99ffe488
+ring-ver-color=ffc799
+
+# separator / line cleanup
+line-color=00000000
+separator-color=00000000
+
+# text
+text-color=ffffffcc
+
+# --- BEHAVIOR (maps general block) ---
+ignore-empty-password
+show-failed-attempts
+
+# cursor hidden equivalent
+hide-keyboard-layout
+
+# font (closest match)
+font=Inter

@@ -2,6 +2,7 @@
 font-size = 13
 font-family = "JetBrainsMonoNl Nerd Font"
 term = ghostty
+scrollback-limit = 0
 
 
 # Cursor

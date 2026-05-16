@@ -8,6 +8,7 @@ vim.pack.add({
     { src = "https://github.com/christoomey/vim-tmux-navigator"},
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" }, --enabled
     { src = "https://github.com/windwp/nvim-ts-autotag" },
+    { src = "https://github.com/folke/persistence.nvim" },
 
     --completetions
     { src = "https://github.com/rafamadriz/friendly-snippets" },
@@ -66,7 +67,8 @@ vim.pack.add({
     { src = "https://github.com/catppuccin/nvim", name = "catppuccin-nvim" },
     { src = "https://github.com/datsfilipe/vesper.nvim.git" },
     { src = "https://github.com/rebelot/kanagawa.nvim.git"},
-    {src = "https://github.com/tiagovla/tokyodark.nvim.git"}
+    {src = "https://github.com/tiagovla/tokyodark.nvim.git"},
+    {src = "https://github.com/rmagatti/auto-session"}
 
 })
 
@@ -107,3 +109,4 @@ require("plugins.fidget")
 require("plugins.snacks")
 require("nvim-web-devicons")
 require("plugins.colorscheme")
+require("plugins.persistence")

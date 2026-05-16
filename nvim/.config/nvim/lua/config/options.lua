@@ -12,7 +12,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
-
+vim.g.tmux_navigator_disable_when_zoomed = 1
 -- Always hard wrap at 80 characters in every file
 local wrap_group = vim.api.nvim_create_augroup("HardWrap", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
         vim.opt_local.smartindent = false
     end,
 })
+
 
 --backup and undo
 vim.opt.fillchars:append({ eob = " " })
@@ -58,3 +59,8 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.mouse = "a"
 vim.g.editorconfig = true
 vim.opt.updatetime = 250
+vim.o.lazyredraw = false
+vim.o.ttyfast = true
+vim.o.scrolloff = 8
+vim.o.cursorline = true
+vim.o.cursorlineopt = "number"
