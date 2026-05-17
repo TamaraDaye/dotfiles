@@ -23,17 +23,17 @@ M.decoration = {
     inactive_opacity = 0.93,
 
     shadow = {
-        enabled = true,
+        enabled = false,
         range = 30,
         render_power = 4,
         color = "rgba(00000099)",
-        offset = {0, 12},
+        offset = {0, 4},
     },
 
     blur = {
         enabled = true,
-        size = 8,
-        passes = 3,
+        size = 5,
+        passes = 2,
         new_optimizations = true,
         ignore_opacity = false,
         vibrancy = 0.15,
