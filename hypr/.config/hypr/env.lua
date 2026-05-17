@@ -1,3 +1,7 @@
+-------------------------------
+---- ENVIRONMENT VARIABLES ----
+-------------------------------
+
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("GBM_BACKEND", "nvidia-drm")

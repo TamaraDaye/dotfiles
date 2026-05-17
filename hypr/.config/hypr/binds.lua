@@ -1,3 +1,7 @@
+---------------------
+---- KEYBINDINGS ----
+---------------------
+
 local programs = require("programs")
 
 local mainMod = "SUPER"

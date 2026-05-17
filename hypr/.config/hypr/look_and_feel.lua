@@ -1,3 +1,7 @@
+-----------------------
+---- LOOK AND FEEL ----
+-----------------------
+
 local M = {}
 
 M.general = {
@@ -32,8 +36,8 @@ M.decoration = {
 
     blur = {
         enabled = true,
-        size = 5,
-        passes = 2,
+        size = 7,
+        passes = 3,
         new_optimizations = true,
         ignore_opacity = false,
         vibrancy = 0.15,
