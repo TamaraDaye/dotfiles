@@ -8,6 +8,8 @@ vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", {
     silent = true,
 })
 
+vim.keymap.set("n", "Y", "y$", {noremap = true})
+
 vim.keymap.set("i", "jj", "<Esc>") -- doubletap j to go back to normal mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move lines down in visual selection" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move lines up in visual selection" })
@@ -15,8 +17,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move lines up in visual s
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "move down in buffer with cursor centered" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move down in buffer with cursor centered" })
 
-vim.keymap.set("n", "n", "nzzzv", { desc = "center search next when moving to finds (forward direction)" })
-vim.keymap.set("n", "N", "Nzzzv", { desc = "center search next when moving to finds(backward direction)" })
+vim.keymap.set("n", "n", "nzz", { desc = "center search next when moving to finds (forward direction)" })
+vim.keymap.set("n", "N", "Nzz", { desc = "center search next when moving to finds(backward direction)" })
 
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)

@@ -17,7 +17,9 @@ M.exec_on_start = {
     wallpaper_app = "hyprpaper",
     display_control = "kanshi",
     noti_daemon = "swaync",
-    status_bar = "waybar",
+    lock_app = "swayidle -w",
+    session = "systemctl --user start graphical-session.target",
+    wayland_display = "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 }
 
 return M

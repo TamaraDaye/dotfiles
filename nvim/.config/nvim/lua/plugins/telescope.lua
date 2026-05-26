@@ -1,6 +1,7 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
+telescope.load_extension("themes")
 
 telescope.setup({
     defaults = {
@@ -43,7 +44,7 @@ telescope.setup({
 
 -- Navigation
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files (Root)" })
-vim.keymap.set("n", "<leader>pg", builtin.live_grep, { desc = "Grep Project (Live)" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep Project (Live)" })
 vim.keymap.set("n", "<leader>,", builtin.buffers, { desc = "Switch Open Buffers" })
 
 -- Advanced Search
@@ -52,6 +53,8 @@ vim.keymap.set("n", "<leader>ph", builtin.help_tags, { desc = "Search Help Docs"
 
 -- Your existing recent files, but cleaned up
 vim.keymap.set("n", "<leader>pr", builtin.oldfiles, { desc = "Recent Files" })
+
+vim.keymap.set("n", "<leader>ths", "<cmd>Telescope themes<CR>", { noremap = true, silent = true, desc = "Theme Switcher" })
 
 -- Primeagen's "Search word under cursor" (Corrected)
 vim.keymap.set("n", "<leader>pws", function()

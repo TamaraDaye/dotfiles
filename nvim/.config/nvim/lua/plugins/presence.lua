@@ -12,3 +12,4 @@ presence.setup({
     reading_text = "Reading %s",
     file_explorer_text = "Browsing %s",
 })
+

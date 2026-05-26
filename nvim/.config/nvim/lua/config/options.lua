@@ -44,13 +44,12 @@ vim.o.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
--- Make snippet placeholders look like subtle underlines instead of solid blocks
-vim.api.nvim_set_hl(0, "SnippetTabstop", { underline = true, bg = "NONE" })
 vim.opt.backspace = { "start", "eol", "indent" }
 
 --window splits
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.laststatus = 3
 
 -- misc
 vim.opt.isfname:append("@-@")

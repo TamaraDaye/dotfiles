@@ -1,18 +1,18 @@
 local snacks = require("snacks")
 
 snacks.setup({
-    input = {enabled = true},
-    quickfile = {enabled = true},
-    explorer = {
-        enabled = true,
-        replace_netrw = false,
-        layout = {
-            cycle = false,
-        },
-    },
-    dashboard = {
-        preset = {
-            header = [[
+	input = { enabled = true },
+	quickfile = { enabled = true },
+	explorer = {
+		enabled = true,
+		replace_netrw = false,
+		layout = {
+			cycle = false,
+		},
+	},
+	dashboard = {
+		preset = {
+			header = [[
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢌⠢⡸⡪⡮⡳⣱⡀⠀⠀⢐⠱⡨⣳⢝⡵⡀⠀⠀⠰⡡⡹⣝⡮⡯⣞⣧⠰⠀⠀⠸⡽⡵⣇⢢⠀⠀⠀⠀⠀⠀⢻⡽⣽⢽⢧⡊⢔⠀⠀⠙⣉⣤⢴⠴⡳⠡⢃⠂⠀⠀⠘⠬⠢⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢆⠢⡸⠬⠬⡉⡌⢒⠀⠀⠐⠕⣸⢕⢯⡺⣆⠀⠀⠨⡢⢹⡳⡽⡽⣵⣫⢷⡱⢄⠀⠹⣽⢽⣲⡑⠄⠀⠀⠀⠀⠈⣯⡯⠟⠓⢉⡀⡐⠄⢘⡵⠶⠕⠓⠛⠑⠁⠙⠀⠀⠈⣎⢪⠣⡀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⡡⡂⢮⠺⠪⠖⠞⠖⠦⠀⡐⡀⠤⣉⡉⠙⠚⠆⠀⠀⡎⣸⢯⢯⣻⢮⡯⣿⢵⡂⢆⠀⢻⡽⣳⢿⡔⢄⠀⠀⠀⠀⢀⣠⣴⠞⡫⠆⠂⠋⢀⠀⠤⠤⠴⢴⣴⣤⣦⣤⡄⠀⠀⠀⠑⢄⠀⠀⠀
@@ -26,15 +26,16 @@ snacks.setup({
 ⠀⠀⠀⠀⠀⠀⢽⡀⠀⠀⠀⠐⣜⢮⡳⣳⡫⡯⣞⢽⡪⣏⢯⡳⣕⢯⢆⣂⠒⡼⣸⢕⣗⣝⢮⡫⡮⡺⣪⢳⢝⣜⢮⡚⡮⡫⣞⢽⡸⡪⡧⣛⢮⢳⢕⡧⡂⠡⠨⣣⢷⢝⣞⢮⢯⣫⢯⢞⡽⣝⠆⢅⢆⢞⡮⣳⢝⠅⠀⠀
 ⠀⠀⠀⠀⠀⠀⠳⠽⠄⠀⠀⠀⠨⠷⠽⠵⠽⠵⠯⠳⠽⠮⠳⠝⠮⠗⠷⠐⠕⠪⠗⠵⠕⠮⠣⠳⠝⠼⠪⠧⠳⠵⠵⠵⠹⠵⠕⠧⠫⠳⠽⠜⠵⠫⠳⠽⠔⠠⠹⠮⠳⠽⠮⠯⠳⠱⠯⠗⠯⠮⠕⠅⠪⠷⠽⠪⠏⠀⠀⠀
 ]],
-        },
+		},
 
-        sections = {
-            { section = "header" },
-            { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-            { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-            { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-        },
-    },
-
+		sections = {
+			{ section = "header" },
+			{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+			{ icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+			{ icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+		},
+	},
 })
-vim.keymap.set("n", "<leader>lg", function() require("snacks").lazygit() end)
+vim.keymap.set("n", "<leader>lg", function()
+	require("snacks").lazygit()
+end)

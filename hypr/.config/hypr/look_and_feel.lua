@@ -34,18 +34,18 @@ M.decoration = {
         offset = {0, 4},
     },
 
-    blur = {
-        enabled = true,
-        size = 7,
-        passes = 3,
-        new_optimizations = true,
-        ignore_opacity = false,
-        vibrancy = 0.15,
-        vibrancy_darkness = 0.4,
-        special = true,
-        popups = true,
-		xray = false,
-    },
+  --   blur = {
+  --       enabled = true,
+  --       size = 7,
+  --       passes = 3,
+  --       new_optimizations = true,
+  --       ignore_opacity = false,
+  --       vibrancy = 0.15,
+  --       vibrancy_darkness = 0.4,
+  --       special = true,
+  --       popups = true,
+		-- xray = false,
+  --   },
 }
 
 

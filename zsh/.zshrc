@@ -134,6 +134,7 @@ alias dps='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Nam
 alias sv="source .venv/bin/activate"
 alias nv="nvim"
 alias py="python"
+alias ghostty="GDK_BACKEND=wayland ghostty"
 
 
 

@@ -1,0 +1,27 @@
+font-feature = +liga
+theme = vesper.conf
+background-opacity = 0.9
+background-blur-radius = 25
+font-size = 12
+
+background = #000000
+foreground = #ffffff
+cursor-color = #FFC282
+cursor-text = #000000
+
+cursor-style-blink = false
+cursor-text = cell-background
+
+window-decoration = true
+window-padding-x = 8
+window-padding-y = 10
+
+confirm-close-surface= false
+window-padding-balance = true
+
+auto-update = check
+auto-update-channel = stable
+
+# Selection (cohesive with cursor accent)
+selection-background = #FFE5B4
+selection-foreground = #101010
