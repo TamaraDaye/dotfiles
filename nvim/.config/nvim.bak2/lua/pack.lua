@@ -13,7 +13,7 @@ vim.pack.add({
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/saghen/blink.cmp.git" },
 	{ src = "https://github.com/folke/lazydev.nvim.git" },
-    { src = 'https://github.com/saghen/blink.lib' }, 
+	{ src = "https://github.com/saghen/blink.lib" },
 	--File Nav
 	{ src = "https://github.com/dmtrKovalenko/fff.nvim.git" }, --enabled
 	{ src = "https://github.com/stevearc/oil.nvim.git" },
@@ -108,3 +108,4 @@ require("nvim-web-devicons")
 require("plugins.colorscheme")
 require("plugins.persistence")
 require("plugins.moonfly")
+require("plugins.projects")
