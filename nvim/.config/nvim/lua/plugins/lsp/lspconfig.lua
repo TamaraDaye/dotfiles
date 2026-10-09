@@ -1,10 +1,8 @@
-local lspconfig = require("lspconfig")
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
 		-- Buffer local mappings
-		local opts = { buffer = ev.buf, silent = true, noremap = true }
+		local opts = { buffer = ev.buf, silent = true }
 		-- Keymaps
 		opts.desc = "Show LSP references"
 		vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
@@ -55,10 +53,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local diagnostic_icon = {
-	[vim.diagnostic.severity.ERROR] = " ",
-	[vim.diagnostic.severity.WARN] = " ",
+	[vim.diagnostic.severity.ERROR] = " ",
+	[vim.diagnostic.severity.WARN] = " ",
 	[vim.diagnostic.severity.HINT] = "󰠠 ",
-	[vim.diagnostic.severity.INFO] = " ",
+	[vim.diagnostic.severity.INFO] = " ",
 }
 
 vim.diagnostic.config({
@@ -130,7 +128,7 @@ vim.lsp.config("basedpyright", {
 		basedpyright = {
 			analysis = {
 				autoSearchPaths = true,
-				diagnosticMode = "workspace",
+				diagnosticMode = "openFilesOnly",
 				useLibraryCodeForTypes = true,
 				typeCheckingMode = "standard",
 				autoImportCompletions = true,
@@ -151,69 +149,24 @@ vim.lsp.config("basedpyright", {
 vim.lsp.config("rust_analyzer", {
 	settings = {
 		["rust-analyzer"] = {
-			cargo = {
-				allFeatures = true,
-				loadOutDirsFromCheck = true,
-				buildScripts = { enable = true },
-			},
-			checkOnSave = { command = "clippy" },
-			procMacro = { enable = true },
-			diagnostics = {
-				enable = true,
-				experimental = { enable = true },
-			},
 			inlayHints = {
-				enable = true,
-				bindingModeHints = { enable = true },
-				closureCaptureHints = { enable = true },
-				closureReturnTypeHints = { enable = "always" },
-				closureStyle = "impl_fn",
-				lifetimeElisionHints = { enable = "always", useParameterNames = true },
-				parameterHints = { enable = true },
 				typeHints = {
 					enable = true,
-					hideClosureInitialization = false,
-					hideNamedConstructor = false,
 				},
-				maxLength = 120,
-				chainingHints = { enable = true },
-				reborrowHints = { enable = "always" },
-			},
-			completion = {
-				fullFunctionSignatures = { enable = true },
-				postfix = { enable = true },
-				callable = { snippets = "fill_arguments" },
-				autoimport = { enable = true },
-			},
-			lens = {
-				enable = true,
-				references = {
-					adt = { enable = true },
-					enumVariant = { enable = true },
-					method = { enable = true },
-					trait = { enable = true },
+				parameterHints = {
+					enable = false,
 				},
-				implementations = { enable = true },
-				run = { enable = true },
-			},
-			hover = {
-				actions = {
-					references = { enable = true },
-					run = { enable = true },
-					debug = { enable = true },
-				},
-			},
-			semanticHighlighting = {
-				operator = { specialization = { enable = true } },
-				punctuation = {
-					separate = { macro = { bang = true } },
+				chainingHints = {
 					enable = true,
+				},
+				closingBraceHints = {
+					enable = true,
+					minLines = 25,
 				},
 			},
 		},
 	},
 })
-
 -- gopls
 vim.lsp.config("gopls", {
 	settings = {
@@ -329,6 +282,30 @@ vim.lsp.config("tailwindcss", {
 		},
 	},
 })
+vim.lsp.config("clangd", {
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--completion-style=detailed",
+		"--header-insertion=iwyu",
+	},
+
+	init_options = {
+		usePlaceholders = true,
+		completeUnimported = true,
+	},
+
+	settings = {
+		clangd = {
+			InlayHints = {
+				Enabled = true,
+				ParameterNames = true,
+				DeducedTypes = true,
+			},
+		},
+	},
+})
 
 -- Enable all
 vim.lsp.enable({
@@ -342,4 +319,5 @@ vim.lsp.enable({
 	"tailwindcss",
 	"rust_analyzer",
 	"basedpyright",
+	"clangd",
 })

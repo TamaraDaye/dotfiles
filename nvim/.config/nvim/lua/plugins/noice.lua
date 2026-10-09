@@ -18,6 +18,11 @@ noice.setup({
 		},
 	},
 
+	lsp = {
+		progress = {
+			enabled = false, -- Kills the bottom-right LSP loading messages
+		},
+	},
 	messages = {
 		enabled = true,
 		view = "mini",
@@ -30,7 +35,7 @@ noice.setup({
 	},
 
 	popupmenu = {
-		enabled = true,
+		enabled = false,
 		backend = "nui",
 	},
 

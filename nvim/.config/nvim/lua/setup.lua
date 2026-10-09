@@ -44,7 +44,6 @@ M.plugins = {
 	{ src = "mason-org/mason.nvim" },
 	{ src = "mason-org/mason-lspconfig.nvim" },
 	{ src = "WhoIsSethDaniel/mason-tool-installer.nvim" },
-	{ src = "j-hui/fidget.nvim", branch = "legacy" },
 	{ src = "amrbashir/nvim-docs-view" },
 	{ src = "stevearc/aerial.nvim" },
 	{ src = "stevearc/conform.nvim" },

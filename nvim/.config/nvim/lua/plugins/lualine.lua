@@ -75,19 +75,21 @@ lualine.setup({
 		lualine_c = { diff, filename },
 		lualine_x = {
 			{
+				-- LSP Component
 				function()
-					return "󰏗 "
+					local clients = vim.lsp.get_clients({ bufnr = 0 })
+					if #clients == 0 then
+						return "No LSP"
+					end
+					local names = {}
+					for _, client in ipairs(clients) do
+						table.insert(names, client.name)
+					end
+					return table.concat(names, ", ")
 				end,
-				color = { fg = "#ff9e64" },
-				cond = function()
-					return true
-				end,
-				on_click = function()
-					vim.cmd("PackUpdate")
-				end,
+				icon = "󰒋 ", -- Swap this with any icon you prefer
+				color = { fg = colors.teal, gui = "bold" },
 			},
-			-- { "encoding" },
-			-- { "fileformat" },
 			{ "filetype" },
 		},
 	},

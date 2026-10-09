@@ -1,10 +1,13 @@
 require("blink.cmp").setup({
-	keymap = { preset = "super-tab" }, -- or "default" for ctrl-y to accept
+	keymap = {
+		preset = "super-tab",
+		["<C-d>"] = { "show_documentation", "hide_documentation" },
+	},
 	appearance = {
 		nerd_font_variant = "mono",
 	},
 	completion = {
-		documentation = { auto_show = true },
+		documentation = { auto_show = false },
 		ghost_text = { enabled = false },
 		accept = { auto_brackets = { enabled = true } },
 	},
@@ -13,5 +16,5 @@ require("blink.cmp").setup({
 	},
 	signature = { enabled = true },
 	fuzzy = { implementation = "prefer_rust_with_warning" },
-	cmdline = { enabled = false },
+	cmdline = { enabled = true },
 })
