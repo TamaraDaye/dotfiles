@@ -169,3 +169,7 @@ zle -N zle-line-init _force_block_cursor
 # ZSH_HIGHLIGHT_STYLES[alias]='fg=#FFC799,bold'
 # ZSH_HIGHLIGHT_STYLES[builtin]='fg=#FFC799,bold'
 # ZSH_HIGHLIGHT_STYLES[function]='fg=#FFC799,bold'
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/jae/.local/bin:$PATH"
